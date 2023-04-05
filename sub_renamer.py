@@ -65,8 +65,9 @@ def main(argv):
                             else:
                                 target_sub_name = video_file_name_wo_ext + sub_ext
 
-                            os.rename(os.path.join(directory, sub_file_name),
-                                      os.path.join(directory, target_sub_name))
+                            if not os.path.exists(os.path.join(directory, target_sub_name)):
+                                os.rename(os.path.join(directory, sub_file_name),
+                                          os.path.join(directory, target_sub_name))
                             sub_files.remove(sub_file_name)
                             break
 
